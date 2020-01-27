@@ -67,7 +67,7 @@ function showTaskDetails(taskId) {
   $(".description").html(task.taskDescription);
   var buttons = $("#buttons");
   buttons.empty();
-  buttons.append("<button class='deleteButton' id=" + +task.id + ">Mark task as complete</button>");
+  buttons.append("<button class='deleteButton' id=" + task.id + ">Mark task as complete</button>");
 }
 
 function displayTaskList(taskList) {
@@ -89,14 +89,13 @@ $(document).ready(function() {
     var inputDeadline = $("#deadline").val();
     var inputDescription = $("input#description").val();
 
+    $("input#name").val("");
+    $("#deadline").val("");
+    $("input#description").val("");
+
     var inputTask = new CreateTask(inputName, inputDeadline, inputDescription);
 
-    console.log(inputTask);
-
     inputTaskList.addTask(inputTask);
-
-    console.log(inputTaskList);
-
     displayTaskList(inputTaskList);
   });
 });
