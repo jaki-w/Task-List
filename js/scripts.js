@@ -1,8 +1,8 @@
 // Business Logic for individual tasks in a list:
-function CreateTask(taskName, deadline, description) {
+function CreateTask(taskName, taskDeadline, taskDescription) {
   this.taskName = taskName;
-  this.deadline = deadline;
-  this.description = description;
+  this.taskDeadline = taskDeadline;
+  this.taskDescription = taskDescription;
 }
 
 // Business logic for task lists:
@@ -21,6 +21,18 @@ CreateList.prototype.addTask = function(task) {
   this.tasks.push(task);
 }
 
+CreateList.prototype.deleteTask = function(id) {
+  for (var i=0; i< this.tasks.length; i++) {
+    if (this.tasks[i]) {
+      if(this.tasks[i].id == id) {
+        delete this.tasks[i];
+        return true;
+      }
+    };
+  }
+  return false;
+}
+
 CreateList.prototype.findTask =  function(id) {
   for (var i=0; i< this.tasks.length; i++) {
     if (this.tasks[i]){
@@ -37,21 +49,29 @@ CreateList.prototype.findTask =  function(id) {
 var inputTaskList = new CreateList();
 
 function makeListClickable() {
-  $("ul#tasks").on("click", "li", function() {
+  $("ul#all-tasks").on("click", "li", function() {
     showTaskDetails(this.id);
+  });
+  $("#buttons").on("click", ".deleteButton", function() {
+    inputTaskList.deleteTask(this.id);
+    $("#show-task").hide();
+    displayTaskList(inputTaskList);
   });
 };
 
 function showTaskDetails(taskId) {
   var task = inputTaskList.findTask(taskId);
-  $("show-task").show();
-  $(".name").html(this.taskName);
-  $(".deadline").html(this.deadline);
-  $(".description").html(this.description);
+  $("#show-task").show();
+  $(".name").html(task.taskName);
+  $(".deadline").html(task.taskDeadline);
+  $(".description").html(task.taskDescription);
+  var buttons = $("#buttons");
+  buttons.empty();
+  buttons.append("<button class='deleteButton' id=" + +task.id + ">Mark task as complete</button>");
 }
 
 function displayTaskList(taskList) {
-  var listOfTasks = $("ul#tasks");
+  var listOfTasks = $("ul#all-tasks");
   var htmlForTasks = "";
   taskList.tasks.forEach(function(task) {
     htmlForTasks += "<li id=" + task.id + ">" + task.taskName + "</li>";
@@ -71,7 +91,11 @@ $(document).ready(function() {
 
     var inputTask = new CreateTask(inputName, inputDeadline, inputDescription);
 
+    console.log(inputTask);
+
     inputTaskList.addTask(inputTask);
+
+    console.log(inputTaskList);
 
     displayTaskList(inputTaskList);
   });
