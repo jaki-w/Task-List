@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+  <link rel="stylesheet" href="css/styles.css" type="text/css">
+  <script src="js/jquery-3.4.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>My to-do list</title>
+</head>
+<body>
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label for="name">Task to complete:</label>
+        <input type="text" class="form-control" id="name">
+        <label for="deadline">What is the date for completing this task?</label>
+        <input type="date" class="form-control" id="deadline">
+        <label for="description">What does the task entail?</label>
+        <input type="text" class="form-control" id="description">
+      </div>
+      <button type="submit">Add Task</button>
+    </form>
+
+    <h3>Your current to-do list includes:</h3>
+    <ul id="tasks">
+    </ul>
+
+    <div id="show-task">
+      <p>Task: <span class="name"></span></p>
+      <p>Must be completed by: <span class="deadline"></span></p>
+      <p>Description: <span class="description"></span></p>
+      <div id="buttons">
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html>
