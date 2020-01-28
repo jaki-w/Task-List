@@ -13,6 +13,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border: 2px solid #111111;
 }
 
 .jumbotron h3 {
@@ -53,6 +54,7 @@ input.form-control {
   margin-bottom: 30px;
   background-color: rgb(25, 158, 158);
   color: #111111;
+  border: 2px solid #111111;
 }
 
 #list-of-tasks {
@@ -60,8 +62,17 @@ input.form-control {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
+  border: 2px solid #111111;
   height: 300px;
-  overflow-y: scroll; 
+  overflow-y: scroll;
+  padding-left: 100px;
+}
+
+#list-of-tasks h3 {
+  text-decoration: underline;
+}
+
+#fixed-height {
+  height: 300px;
+  overflow-y: scroll;
 }

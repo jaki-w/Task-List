@@ -25,22 +25,26 @@
       </form>
     </div>
 
-    <div class="well" id="list-of-tasks">
-      <div class="row">
-        <h3>Your current to-do list includes:</h3>
-        <ul id="all-tasks">
-        </ul>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="well" id="list-of-tasks">
+          <h3>Your current to-do list includes:</h3>
+          <ul id="all-tasks">
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="well" id ="fixed-height">
+          <div id="show-task">
+            <p>Task: <span class="name"></span></p>
+            <p>Must be completed by: <span class="deadline"></span></p>
+            <p>Description: <span class="description"></span></p>
+            <div id="buttons">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div id="show-task" class="well">
-      <p>Task: <span class="name"></span></p>
-      <p>Must be completed by: <span class="deadline"></span></p>
-      <p>Description: <span class="description"></span></p>
-      <div id="buttons">
-      </div>
-    </div>
-
   </div>
 </body>
 </html>
