@@ -9,23 +9,31 @@
 </head>
 <body>
   <div class="container">
-    <form>
-    
+    <div class="jumbotron">
+      <h1>To-Do List</h1>
+      <h3>Add items to your to-do list! Delete them when you're done!</h3>
+    </div>
+    <div class="well">
+      <form>
         <label for="name">Task to complete:</label>
         <input type="text" class="form-control" id="name">
         <label for="deadline">What is the date for completing this task?</label>
         <input type="date" class="form-control" id="deadline">
         <label for="description">What does the task entail?</label>
         <input type="text" class="form-control" id="description">
-      
-      <button type="submit">Add Task</button>
-    </form>
+        <button type="submit" class="btn">Add Task</button>
+      </form>
+    </div>
 
-    <h3>Your current to-do list includes:</h3>
-    <ul id="all-tasks">
-    </ul>
+    <div class="well" id="list-of-tasks">
+      <div class="row">
+        <h3>Your current to-do list includes:</h3>
+        <ul id="all-tasks">
+        </ul>
+      </div>
+    </div>
 
-    <div id="show-task">
+    <div id="show-task" class="well">
       <p>Task: <span class="name"></span></p>
       <p>Must be completed by: <span class="deadline"></span></p>
       <p>Description: <span class="description"></span></p>
